@@ -1,0 +1,87 @@
+Qual localização geográfica dos usuários?
+  A principio na grande vitória, ES, e em expansões o estado inteiro.
+  
+Qual o ambiente de hardware e software? Há restrições?
+  Não há restrições tanto em software quanto hardware visto que todas os casos de uso e processo são de pouca quantidade de dados 
+  processado.
+  
+Qual a frequência de uso do sistema ou funcionalidade? E tempo de resposta esperada?
+  Não fui estipulado pelo cliente tempo de resposta, visto que a maioria das funcionalidade deverá ter tempo curto, inferior a 3 segundos.
+  Existem funcionalidades que estaram disponiveis:
+    durante todo o semestre( provavelmente não mais do que 5 vezes por aluno).
+    mensais no perido do semestre( provavelmente não mais do que uma vez por professor).
+    
+Qual o volume de dados esperado? (inicial e futuramente)
+  Não possivel conseguir a quantidade de dados inicial mas é possivel criar uma projeção sendo esta um projetação que supera a quantidade
+  de dados presentes.
+  
+  Inicial
+    Como o sistema não fara ETL( extrair, transformar e carregar) dos dados antigos o sistema começara somente com usas estruturas.
+    
+  Futuro
+    É esperado um crescimento anual máximo de:
+    714 alunos.
+    1220 pedidos vagas de monitores.
+    1744 pedidos para se tornaram monitores.
+    40 monitores.
+    
+    *é esperado a entrada de novos professores contudo não devem chegar as dezenas anualmente, sendo que estamos em torno 70% do limite
+    para professores que a instituição espera ter.
+    ** os dados foram obtidos atravez do site do ifes serra, e estão copiados no final do arquivo.
+    
+Há restrições de confiabilidade? (tempo entre falhas) Tarefas críticas, que envolvam risco ou de alto impacto no negócio?
+  Não foi requisitado garantias contra falhas. 
+  
+Há restrições de segurança? dados confidenciais, por exemplo?
+  A comissão terá acesso a todos os dados, os professores precisam saber os dados dos alunos candidatos do semestre que se candidataram
+  a uma vaga que o professor é responsavel e os alunos não possuem a nenhum dado.
+  
+Quais os perfis dos usuários? são leigos, experts, usuários frequentes, esporádicos? possuem alguma dificuldade ou limitação?
+  Não foi informado a existência de alguma limitação por partes dos usuários, os usuários são de todos os tipos de experiência.
+  
+Há alguma previsão de mudanças futuras? há alterações no negócio (tipo de produtos, etc)?
+  No período de 5 anos não há previsão de mudanças que afetem o sistema, após esse período deverá ser feito nova previsão.
+
+
+
+------------------------------------------------------------------------------------------------------------------------------
+cursos-  * foi considerado que alunos ingressantes não podem ser monitores e as materias do último período não possuem monitores.
+  Técnico em Automação Industrial Integrado ao Ensino Médio
+    36 alunos por ano      x 2 = 72 possiveis pedidos de monitoes por ano
+    3 anos
+    24 materias            x 2 = 48 possiveis vagas para monitores por ano
+    
+  Técnico em Informática para a Internet Integrado ao Ensino Médio    
+    36 alunos por ano      x 2 = 72 possiveis pedidos de monitoes por ano
+    3 anos
+    25 materias            x 2 = 50 possiveis vagas para monitores por ano
+
+  Técnico em Mecatrônica Integrado ao Ensino Médio
+    36 alunos por ano       x 2 = 72 possiveis pedidos de monitoes por ano
+    3 anos
+    24 materias             x 2 = 48 possiveis vagas para monitores por ano
+   
+  Automação Industrial
+    32 vagas - período matutino e 32 vagas - período noturno, por semestre       x 3 = 192 possiveis pedidos de monitoes por ano
+    2 anos (4 módulos)
+    20 materias                                                                  x 3 = 60 possiveis vagas para monitores por ano  
+ 
+  Informática
+    40 vagas - período vespertino e 40 vagas - período noturno, por semestre     x 3 = 240 possiveis pedidos de monitoes por ano
+    2 anos (4 módulos)
+    23 materias                                                                  x 3 = 69 possiveis vagas para monitores por ano                 
+    
+  Manutenção e Suporte em Informática
+    não informado( suposto 35) por semestre                                      x 2 = 140 possiveis pedidos de monitoes por ano.
+    1 ano e meio (3 módulos)
+    17 materias                                                                  x 2 = 68 possiveis vagas para monitores por ano.
+    
+  Sistemas de Informação
+    80 por ano (2 entradas com 40 vagas cada)                                   x 7 = 560 possiveis pedidos de monitoes por ano
+    4 anos (8 semestres)
+    43 materias                                                                 x 7 = 301 possiveis vagas para monitores por ano
+    
+  Engenharia de Controle e Automação
+    44 por ano (2 entradas de 22 vagas cada)                                    x 9 = 396 possiveis pedidos de monitoes por ano
+    6 anos(10 semestres) 
+    64 materias                                                                 x 9 = 576 possiveis vagas para monitores por ano
