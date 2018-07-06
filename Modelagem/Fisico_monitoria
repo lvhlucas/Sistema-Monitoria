@@ -1,0 +1,113 @@
+-- Geração de Modelo físico
+-- Sql ANSI 2003 - brModelo.
+
+
+
+CREATE TABLE Monitor (
+pkey_Monitor INTEGER PRIMARY KEY,
+horarioAtendimento VARCHAR(200),
+pkey_EstadoMonitor INTEGER,
+pkey_Pessoa INTEGER
+)
+
+CREATE TABLE EstadoMonitor (
+nomeEstado VARCHAR(20),
+pkey_EstadoMonitor INTEGER PRIMARY KEY
+)
+
+CREATE TABLE RegistroPresenca (
+pkey_RegistroPresenca INTEGER PRIMARY KEY,
+pessoasAtendidas INTEGER,
+horasMinistradas INTEGER,
+linklistapresenca VARCHAR(50),
+dia DATETIME,
+pkey_Monitor INTEGER,
+FOREIGN KEY(pkey_Monitor) REFERENCES Monitor (pkey_Monitor)
+)
+
+CREATE TABLE Aluno (
+estaNaComissao INTEGER,
+nome VARCHAR(50),
+pkey_Pessoa INTEGER PRIMARY KEY,
+senha VARCHAR(20),
+email VARCHAR(50),
+pkey_Curso VARCHAR(10)
+)
+
+CREATE TABLE Candidato (
+pkey_Candidato INTEGER PRIMARY KEY,
+pkey_VagaMonitor VARCHAR(10),
+pkey_EstadoCandidato INTEGER,
+pkey_Pessoa INTEGER,
+FOREIGN KEY(pkey_Pessoa) REFERENCES Aluno (pkey_Pessoa)
+)
+
+CREATE TABLE EstadoCandidato (
+nomeEstado VARCHAR(20),
+pkey_EstadoCandidato INTEGER PRIMARY KEY
+)
+
+CREATE TABLE VagaMonitor (
+pkey_VagaMonitor VARCHAR(10) PRIMARY KEY,
+descricaoResultado VARCHAR(50),
+quantidadeVagas INTEGER,
+materiasCorrelacionadas VARCHAR(50),
+pkey_Pessoa INTEGER,
+pkey_ProcessoSeletivo INTEGER,
+pkey_Materias INTEGER,
+pkey_EstadoVaga INTEGER
+)
+
+CREATE TABLE Curso (
+pkey_Curso VARCHAR(10) PRIMARY KEY,
+nome VARCHAR(20)
+)
+
+CREATE TABLE Materia (
+nome VARCHAR(20),
+pkey_Materias INTEGER PRIMARY KEY,
+periodo INTEGER,
+pkey_Curso VARCHAR(10),
+FOREIGN KEY(pkey_Curso) REFERENCES Curso (pkey_Curso)
+)
+
+CREATE TABLE Professor (
+semestreEntrada INTEGER,
+nome VARCHAR(50),
+pkey_Pessoa INTEGER PRIMARY KEY,
+senha VARCHAR(20),
+email VARCHAR(50)
+)
+
+CREATE TABLE ProcessoSeletivo (
+dataTerminoProfessores DATETIME,
+dataTerminoAlunos DATETIME,
+dataInicioAlunos DATETIME,
+dataInicioProfessores DATETIME,
+pkey_ProcessoSeletivo INTEGER PRIMARY KEY,
+semestre INTEGER
+)
+
+CREATE TABLE EstadoVaga (
+nomeEstado VARCHAR(20),
+pkey_EstadoVaga INTEGER PRIMARY KEY
+)
+
+CREATE TABLE PedeMonitor (
+comentario VARCHAR(100),
+pkey_PedeMonitor INTEGER PRIMARY KEY,
+pkey_Materias INTEGER,
+pkey_Pessoa INTEGER,
+FOREIGN KEY(pkey_Materias) REFERENCES Materia (pkey_Materias),
+FOREIGN KEY(pkey_Pessoa) REFERENCES Aluno (pkey_Pessoa)
+)
+
+ALTER TABLE Monitor ADD FOREIGN KEY(pkey_EstadoMonitor) REFERENCES EstadoMonitor (pkey_EstadoMonitor)
+ALTER TABLE Monitor ADD FOREIGN KEY(pkey_Pessoa) REFERENCES Aluno (pkey_Pessoa)
+ALTER TABLE Aluno ADD FOREIGN KEY(pkey_Curso) REFERENCES Curso (pkey_Curso)
+ALTER TABLE Candidato ADD FOREIGN KEY(pkey_VagaMonitor) REFERENCES VagaMonitor (pkey_VagaMonitor)
+ALTER TABLE Candidato ADD FOREIGN KEY(pkey_EstadoCandidato) REFERENCES EstadoCandidato (pkey_EstadoCandidato)
+ALTER TABLE VagaMonitor ADD FOREIGN KEY(pkey_Pessoa) REFERENCES Professor (pkey_Pessoa)
+ALTER TABLE VagaMonitor ADD FOREIGN KEY(pkey_ProcessoSeletivo) REFERENCES ProcessoSeletivo (pkey_ProcessoSeletivo)
+ALTER TABLE VagaMonitor ADD FOREIGN KEY(pkey_Materias) REFERENCES Materia (pkey_Materias)
+ALTER TABLE VagaMonitor ADD FOREIGN KEY(pkey_EstadoVaga) REFERENCES EstadoVaga (pkey_EstadoVaga)
